@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0bbf34d3a62da8aa8b53ee6b30f00bda",
+    "content-hash": "420ea1f310dc22efd03c35a86233b1ba",
     "packages": [
         {
             "name": "brick/math",
@@ -2005,6 +2005,82 @@
                 }
             ],
             "time": "2024-12-08T08:18:47+00:00"
+        },
+        {
+            "name": "livewire/livewire",
+            "version": "v3.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/livewire/livewire.git",
+                "reference": "0df0a762698176d714e42e2dfed92b6b9e24b8e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/0df0a762698176d714e42e2dfed92b6b9e24b8e4",
+                "reference": "0df0a762698176d714e42e2dfed92b6b9e24b8e4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^10.0|^11.0|^12.0",
+                "illuminate/routing": "^10.0|^11.0|^12.0",
+                "illuminate/support": "^10.0|^11.0|^12.0",
+                "illuminate/validation": "^10.0|^11.0|^12.0",
+                "laravel/prompts": "^0.1.24|^0.2|^0.3",
+                "league/mime-type-detection": "^1.9",
+                "php": "^8.1",
+                "symfony/console": "^6.0|^7.0",
+                "symfony/http-kernel": "^6.2|^7.0"
+            },
+            "require-dev": {
+                "calebporzio/sushi": "^2.1",
+                "laravel/framework": "^10.15.0|^11.0|^12.0",
+                "mockery/mockery": "^1.3.1",
+                "orchestra/testbench": "^8.21.0|^9.0|^10.0",
+                "orchestra/testbench-dusk": "^8.24|^9.1|^10.0",
+                "phpunit/phpunit": "^10.4|^11.5",
+                "psy/psysh": "^0.11.22|^0.12"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Livewire": "Livewire\\Livewire"
+                    },
+                    "providers": [
+                        "Livewire\\LivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Livewire\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caleb Porzio",
+                    "email": "calebporzio@gmail.com"
+                }
+            ],
+            "description": "A front-end framework for Laravel.",
+            "support": {
+                "issues": "https://github.com/livewire/livewire/issues",
+                "source": "https://github.com/livewire/livewire/tree/v3.6.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/livewire",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-03-04T21:48:52+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -5513,6 +5589,83 @@
                 }
             ],
             "time": "2025-01-17T11:39:41+00:00"
+        },
+        {
+            "name": "tallstackui/tallstackui",
+            "version": "v2.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tallstackui/tallstackui.git",
+                "reference": "210e5efed8574e275d345f2af769427bf1034a1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/210e5efed8574e275d345f2af769427bf1034a1b",
+                "reference": "210e5efed8574e275d345f2af769427bf1034a1b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-zip": "*",
+                "illuminate/console": "^10.0|^11.0|^12.0",
+                "illuminate/contracts": "^10.0|^11.0|^12.0",
+                "illuminate/pagination": "^10.0|^11.0|^12.0",
+                "illuminate/support": "^10.0|^11.0|^12.0",
+                "illuminate/view": "^10.0|^11.0|^12.0",
+                "livewire/livewire": "^3.4.9",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "blade-ui-kit/blade-icons": "^1.7",
+                "larastan/larastan": "^2.7",
+                "laravel/pint": "^1.13",
+                "orchestra/testbench": "^8.0|^9.0|^10.0",
+                "orchestra/testbench-dusk": "^8.0|^9.0",
+                "pestphp/pest": "^2.0|^3.7",
+                "pestphp/pest-plugin-type-coverage": "^2.2|^3.3",
+                "rector/rector": "^1.0|^2.0",
+                "spatie/ray": "^1.41"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "TallStackUi": "TallStackUi\\Facades\\TallStackUi"
+                    },
+                    "providers": [
+                        "TallStackUi\\TallStackUiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "TallStackUi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "AJ Meireles",
+                    "email": "alvaro.meireles@live.com"
+                }
+            ],
+            "description": "TallStackUI is a powerful suite of Blade components that elevate your workflow of Livewire applications.",
+            "support": {
+                "issues": "https://github.com/tallstackui/tallstackui/issues",
+                "source": "https://github.com/tallstackui/tallstackui/tree/v2.2.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/devajmeireles",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-03-12T00:30:47+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

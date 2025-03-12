@@ -12,25 +12,35 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
+        <tallstackui:script />
+        @livewireStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+            <x-layout>
+                <x-slot:header>
+                    <x-layout.header>
+                        <x-slot:right>
+                            <x-dropdown text="Hello, {{ auth()->user()->name }}!">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <x-dropdown.items text="Logout" onclick="event.preventDefault(); this.closest('form').submit();" />
+                                </form>
+                            </x-dropdown>
+                        </x-slot:right>
+                    </x-layout.header>
+                </x-slot:header>
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
+                <x-slot:menu>
+                    <x-side-bar smart nagivate>
+                        <x-side-bar.item text="Dashboard" icon="home" :route="route('dashboard')" />
+                    </x-side-bar>
+                </x-slot:menu>
 
-            <!-- Page Content -->
-            <main>
                 {{ $slot }}
-            </main>
+            </x-layout>
         </div>
+    @livewireScripts
     </body>
 </html>
