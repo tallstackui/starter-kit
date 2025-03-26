@@ -1,5 +1,5 @@
 <div>
-    <x-alert icon="light-bulb">
+    <x-alert color="amber" icon="light-bulb">
         Remember to take a look at the source code to understand how the components in this area were built and are being used.
     </x-alert>
 

@@ -1,4 +1,8 @@
 <x-guest-layout>
+    <div class="my-6 flex items-center justify-center">
+        <img src="{{ asset('/assets/images/tsui.png') }}" />
+    </div>
+
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
@@ -13,9 +17,9 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+            @if (Route::has('register'))
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md" href="{{ route('register') }}">
+                    {{ __('Sing up') }}
                 </a>
             @endif
 
