@@ -10,7 +10,7 @@
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "livewire/livewire": "^3.0.0",
-        "tallstackui/tallstackui": "2.x-dev"
+        "tallstackui/tallstackui": "^2.0.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -81,6 +81,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

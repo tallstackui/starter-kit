@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df48bbb2a4c4bd20657e6719e4473adc",
+    "content-hash": "21270ed5a0750c24462a77dd212b4977",
     "packages": [
         {
             "name": "brick/math",
@@ -5592,7 +5592,7 @@
         },
         {
             "name": "tallstackui/tallstackui",
-            "version": "2.x-dev",
+            "version": "v2.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tallstackui/tallstackui.git",
@@ -5624,7 +5624,6 @@
                 "pestphp/pest-plugin-type-coverage": "^2.2|^3.3",
                 "spatie/ray": "^1.41"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -5657,7 +5656,7 @@
             "description": "TallStackUI is a powerful suite of Blade components that elevate your workflow of Livewire applications.",
             "support": {
                 "issues": "https://github.com/tallstackui/tallstackui/issues",
-                "source": "https://github.com/tallstackui/tallstackui/tree/2.x"
+                "source": "https://github.com/tallstackui/tallstackui/tree/v2.3.3"
             },
             "funding": [
                 {
@@ -9408,10 +9407,8 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "tallstackui/tallstackui": 20
-    },
+    "minimum-stability": "stable",
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
