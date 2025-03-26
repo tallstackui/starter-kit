@@ -1,5 +1,5 @@
 <div>
-    <x-button color="green" text="Create New User" wire:click="$toggle('modal')" sm />
+    <x-button text="Create New User" wire:click="$toggle('modal')" sm />
 
     <x-modal :title="__('Create New User')" wire>
         <form id="user-create" wire:submit="save" class="space-y-6">

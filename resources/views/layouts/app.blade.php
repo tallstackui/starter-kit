@@ -42,7 +42,7 @@
                     <x-side-bar smart>
                         <x-slot:brand>
                             <div class="flex justify-center items-center mt-6">
-                                <x-app-logo class="size-14 text-[#f53003]" />
+                                <img src="{{ asset('/assets/images/tsui.png') }}" />
                             </div>
                         </x-slot:brand>
                         <x-side-bar.item text="Dashboard" icon="home" :route="route('dashboard')" />

@@ -1,5 +1,5 @@
 <div>
-    <x-button.circle color="green" icon="pencil" wire:click="$toggle('modal')" />
+    <x-button.circle icon="pencil" wire:click="$toggle('modal')" />
 
     <x-modal :title="__('Update User: #:id', ['id' => $user->id])" wire>
         <form id="user-update-{{ $user->id }}" wire:submit="save" class="space-y-6">
