@@ -7,11 +7,9 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Scripts -->
         <tallstackui:script />
         @livewireStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -33,7 +31,7 @@
                 </x-slot:header>
 
                 <x-slot:menu>
-                    <x-side-bar smart nagivate>
+                    <x-side-bar smart>
                         <x-side-bar.item text="Dashboard" icon="home" :route="route('dashboard')" />
                     </x-side-bar>
                 </x-slot:menu>
@@ -41,6 +39,6 @@
                 {{ $slot }}
             </x-layout>
         </div>
-    @livewireScripts
+        @livewireScripts
     </body>
 </html>
