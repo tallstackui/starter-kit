@@ -14,7 +14,7 @@
         @livewireStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased" x-cloak x-bind:class="{ 'dark bg-gray-700': darkTheme, 'bg-gray-100': !darkTheme }">
+    <body class="font-sans antialiased" x-cloak x-bind:class="{ 'dark bg-gray-800': darkTheme, 'bg-gray-100': !darkTheme }">
         <div class="min-h-screen">
             <x-layout>
                 <x-slot:top>
