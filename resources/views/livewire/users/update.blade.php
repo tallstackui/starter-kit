@@ -2,7 +2,7 @@
     <x-button.circle icon="pencil" wire:click="$toggle('modal')" />
 
     <x-modal :title="__('Update User: #:id', ['id' => $user->id])" wire>
-        <form id="user-update-{{ $user->id }}" wire:submit="save" class="space-y-6">
+        <form id="user-update-{{ $user->id }}" wire:submit="save" class="space-y-4">
             <div>
                 <x-input label="Name *" wire:model="user.name" required />
             </div>

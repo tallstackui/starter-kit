@@ -59,10 +59,12 @@
         ],
         "format": "./vendor/bin/pint",
         "analyse": "./vendor/bin/phpstan analyse",
-        "ci:analyse": [
+        "test": "./vendor/bin/pest --parallel",
+        "ci": [
             "Composer\\Config::disableProcessTimeout",
             "./vendor/bin/pint --test",
-            "./vendor/bin/phpstan analyse"
+            "./vendor/bin/phpstan analyse",
+            "./vendor/bin/pest --parallel"
         ]
     },
     "extra": {
