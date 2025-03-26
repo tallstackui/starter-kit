@@ -54,10 +54,19 @@ jobs:
           npm install
           npm run build
 
+      - name: Preparing Laravel
+        run: php artisan key:generate --force && php artisan optimize:clear
+
+      - name: Check Route Integrity
+        run: php artisan route:list
+
+      - name: Run Migrations
+        run: php artisan migrate:fresh --step --force --no-interaction --seed
+
       - name: Pint
         run: ./vendor/bin/pint --test
 
-      - name: PHPStan
+      - name: PhpStan
         run: ./vendor/bin/phpstan --configuration="phpstan.neon"
 
       - name: Feature Tests
