@@ -34,13 +34,6 @@ jobs:
         with:
           node-version: 22.x
 
-      - name: Install Node Dependencies
-        run: |
-          rm -rf node_modules
-          rm -f package-lock.json
-          npm install
-          npm run build
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -53,6 +46,13 @@ jobs:
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-progress --ansi --no-update
           composer update --no-interaction --no-progress --ansi
+
+      - name: Install Node Dependencies
+        run: |
+          rm -rf node_modules
+          rm -f package-lock.json
+          npm install
+          npm run build
 
       - name: Pint
         run: ./vendor/bin/pint --test
