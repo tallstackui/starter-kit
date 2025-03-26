@@ -1,5 +1,5 @@
 <div>
-    <x-table :$headers :rows="$this->rows" paginate simple-pagination filter>
+    <x-table :$headers :$sort :rows="$this->rows" paginate simple-pagination filter>
         @interact('column_action', $row)
             <div class="flex gap-1">
                 <x-button.circle color="green" icon="pencil" />

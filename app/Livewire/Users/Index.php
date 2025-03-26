@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -18,11 +19,16 @@ class Index extends Component
 
     public ?string $search = null;
 
+    public array $sort = [
+        'column'    => 'name',
+        'direction' => 'desc',
+    ];
+
     public array $headers = [
         ['index' => 'id', 'label' => '#'],
         ['index' => 'name', 'label' => 'Name'],
         ['index' => 'name', 'label' => 'E-mail'],
-        ['index' => 'action'],
+        ['index' => 'action', 'sortable' => false],
     ];
 
     public function render(): View
@@ -34,7 +40,9 @@ class Index extends Component
     public function rows(): LengthAwarePaginator
     {
         return User::query()
-            ->when($this->search !== null, fn (Builder $query) => $query->whereAny(['name', 'email'], 'like', '%'.$this->search.'%'))
+            ->whereNotIn('id', [Auth::id()])
+            ->when($this->search !== null, fn (Builder $query) => $query->whereAny(['name', 'email'], 'like', '%'.trim($this->search).'%'))
+            ->orderBy(...array_values($this->sort))
             ->paginate($this->quantity)
             ->withQueryString();
     }
