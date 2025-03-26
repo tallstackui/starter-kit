@@ -9,6 +9,10 @@
     <a href="https://livewire.laravel.com"><img alt="Livewire v3.x" src="https://img.shields.io/badge/Livewire-^v3.x-FB70A9?style=for-the-badge"></a>
 </p>
 
-## Note
+## Welcome
 
-This is a W.I.P about the Laravel 12 TallStackUI Starter Kit. **Please, do not use it in production yet.**
+This is the repository for the official TallStackUI starter kit for Laravel 12.
+
+## Documentation
+
+[Discover the starter kit by visiting the official documentation on the TallStackUI website.](https://tallstackui.com/docs/v2/starter-kit)
