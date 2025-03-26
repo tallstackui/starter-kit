@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "21270ed5a0750c24462a77dd212b4977",
+    "content-hash": "df48bbb2a4c4bd20657e6719e4473adc",
     "packages": [
         {
             "name": "brick/math",
@@ -5592,16 +5592,16 @@
         },
         {
             "name": "tallstackui/tallstackui",
-            "version": "v2.3.2",
+            "version": "2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tallstackui/tallstackui.git",
-                "reference": "5aa3f481a5791ef836f430714f7c514490ba12ad"
+                "reference": "2e534602b88c7c2db30bfe74ab3e900b9d03890e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/5aa3f481a5791ef836f430714f7c514490ba12ad",
-                "reference": "5aa3f481a5791ef836f430714f7c514490ba12ad",
+                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/2e534602b88c7c2db30bfe74ab3e900b9d03890e",
+                "reference": "2e534602b88c7c2db30bfe74ab3e900b9d03890e",
                 "shasum": ""
             },
             "require": {
@@ -5624,6 +5624,7 @@
                 "pestphp/pest-plugin-type-coverage": "^2.2|^3.3",
                 "spatie/ray": "^1.41"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -5656,7 +5657,7 @@
             "description": "TallStackUI is a powerful suite of Blade components that elevate your workflow of Livewire applications.",
             "support": {
                 "issues": "https://github.com/tallstackui/tallstackui/issues",
-                "source": "https://github.com/tallstackui/tallstackui/tree/v2.3.2"
+                "source": "https://github.com/tallstackui/tallstackui/tree/2.x"
             },
             "funding": [
                 {
@@ -5664,7 +5665,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-26T15:29:46+00:00"
+            "time": "2025-03-26T17:05:42+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -9407,8 +9408,10 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": {},
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "tallstackui/tallstackui": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

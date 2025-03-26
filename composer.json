@@ -10,7 +10,7 @@
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "livewire/livewire": "^3.0.0",
-        "tallstackui/tallstackui": "^2.0.0"
+        "tallstackui/tallstackui": "2.x-dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -50,7 +50,8 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
-            "@php artisan migrate --graceful --ansi --seed"
+            "@php artisan migrate --graceful --ansi",
+            "@php artisan db:seed"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
@@ -78,6 +79,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
