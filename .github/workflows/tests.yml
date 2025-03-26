@@ -54,6 +54,12 @@ jobs:
           npm install
           npm run build
 
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
+      - name: Creating Database
+        run: php -r "file_exists('database/database.sqlite') || touch('database/database.sqlite');"
+
       - name: Preparing Laravel
         run: php artisan key:generate --force && php artisan optimize:clear
 
