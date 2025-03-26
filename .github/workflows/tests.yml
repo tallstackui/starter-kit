@@ -1,0 +1,65 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.github/**'
+      - 'README.md'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        php: [8.2,8.3]
+        laravel: ['11.*', '12.*']
+
+    name: OS:${{ matrix.os }} / PHP:${{ matrix.php }} / Laravel:${{ matrix.laravel }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+
+      - name: Install Node Dependencies
+        run: |
+          rm -rf node_modules
+          rm -f package-lock.json
+          npm install
+          npm run lint
+          npm run build
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
+          tools: composer:v2
+          coverage: none
+
+      - name: Install Composer
+        run: |
+          composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-progress --ansi --no-update
+          composer update --no-interaction --no-progress --ansi
+
+      - name: Pint
+        run: ./vendor/bin/pint --test
+
+      - name: PHPStan
+        run: ./vendor/bin/phpstan --configuration="phpstan.neon"
+
+      - name: Feature Tests
+        run: ./vendor/bin/pest --ci --parallel
