@@ -1,10 +1,16 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "tallstackui/starter-kit",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "The TallStackUI Starter Kit for Laravel 12.",
+    "keywords": ["laravel", "framework", "tallstackui"],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "AJ Meireles",
+            "email": "alvaro.meireles@live.com"
+        }
+    ],
     "require": {
         "php": "^8.2",
         "laravel/framework": "^12.0",
