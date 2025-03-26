@@ -9,7 +9,7 @@
             </p>
             <div>
                 <i>
-                    What this starter kit includes?
+                    "What this starter kit includes?"
                 </i>
                 <ul class="ml-2 mt-2 list-inside list-decimal font-bold">
                     <li>Laravel v12</li>
@@ -20,7 +20,9 @@
             </div>
         </div>
         <x-slot:footer>
-            ✨ We've prepared a basic user <i>C.R.U.D.</i> in the <pre>app/Livewire/Users</pre> folder. <x-link :href="route('users.index')" colorless underline>Click here to try it out!</x-link>
+            <span class="text-xs">
+                ✨ We've prepared a basic <i>C.R.U.D.</i> for users in the app/Livewire/Users folder using several TallStackUI components. <x-link :href="route('users.index')" colorless underline>Click here to try it out!</x-link>
+            </span>
         </x-slot:footer>
     </x-card>
 </x-app-layout>
