@@ -20,14 +20,15 @@ class Index extends Component
     public ?string $search = null;
 
     public array $sort = [
-        'column'    => 'name',
+        'column'    => 'created_at',
         'direction' => 'desc',
     ];
 
     public array $headers = [
         ['index' => 'id', 'label' => '#'],
         ['index' => 'name', 'label' => 'Name'],
-        ['index' => 'name', 'label' => 'E-mail'],
+        ['index' => 'email', 'label' => 'E-mail'],
+        ['index' => 'created_at', 'label' => 'Created'],
         ['index' => 'action', 'sortable' => false],
     ];
 

@@ -4,7 +4,6 @@ namespace App\Livewire\Users;
 
 use App\Livewire\Traits\Alert;
 use App\Models\User;
-use Exception;
 use Livewire\Attributes\Renderless;
 use Livewire\Component;
 
@@ -34,17 +33,10 @@ class Delete extends Component
 
     public function delete(): void
     {
-        try {
-            $this->user->delete();
+        $this->user->delete();
 
-            $this->dispatch('deleted');
-            $this->success();
+        $this->dispatch('deleted');
 
-            return;
-        } catch (Exception $e) {
-            report($e);
-        }
-
-        $this->error();
+        $this->success();
     }
 }
