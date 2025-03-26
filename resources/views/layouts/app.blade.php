@@ -14,7 +14,11 @@
         @livewireStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased" x-cloak x-bind:class="{ 'dark bg-gray-800': darkTheme, 'bg-gray-100': !darkTheme }">
+    <body class="font-sans antialiased"
+          x-cloak
+          x-data="{ name: @js(auth()->user()->name) }"
+          x-on:name-updated.window="name = $event.detail.name"
+          x-bind:class="{ 'dark bg-gray-800': darkTheme, 'bg-gray-100': !darkTheme }">
     <x-layout>
         <x-slot:top>
             <x-dialog />
@@ -26,7 +30,14 @@
                     <x-theme-switch />
                 </x-slot:left>
                 <x-slot:right>
-                    <x-dropdown text="Hello, {{ auth()->user()->name }}!">
+                    <x-dropdown>
+                        <x-slot:action>
+                            <div>
+                                <button class="cursor-pointer" x-on:click="show = !show">
+                                    <span class="text-base font-semibold text-primary-500" x-text="name"></span>
+                                </button>
+                            </div>
+                        </x-slot:action>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <x-dropdown.items text="Profile" :href="route('user.profile')" />
@@ -39,7 +50,7 @@
         <x-slot:menu>
             <x-side-bar smart>
                 <x-slot:brand>
-                    <div class="flex justify-center items-center mt-6">
+                    <div class="mt-6 flex items-center justify-center">
                         <img src="{{ asset('/assets/images/tsui.png') }}" />
                     </div>
                 </x-slot:brand>

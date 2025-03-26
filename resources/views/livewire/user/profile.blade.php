@@ -1,4 +1,4 @@
-<div>
+<div @updated="$dispatch('name-updated', { name: $event.detail.name })">
     <x-card>
         <x-slot:header>
             Edit Your Profile

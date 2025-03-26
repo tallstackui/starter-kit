@@ -1,5 +1,9 @@
 <div>
-    <div class="mb-2">
+    <x-alert icon="light-bulb">
+        Remember to take a look at the source code to understand how the components in this area were built and are being used.
+    </x-alert>
+
+    <div class="mb-2 mt-4">
         <livewire:users.create @created="$refresh" />
     </div>
 

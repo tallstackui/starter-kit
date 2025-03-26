@@ -52,7 +52,7 @@ class Profile extends Component
         $this->user->password = when($this->password !== null, bcrypt($this->password), $this->user->password);
         $this->user->update();
 
-        $this->dispatch('updated');
+        $this->dispatch('updated', name: $this->user->name);
 
         $this->resetExcept('user');
 
