@@ -6,6 +6,8 @@ use App\Livewire\Traits\Alert;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 use Livewire\Component;
 
 class Profile extends Component
@@ -34,8 +36,8 @@ class Profile extends Component
             'password' => [
                 'nullable',
                 'string',
-                'min:8',
-                'confirmed'
+                'confirmed',
+                Rules\Password::defaults()
             ]
         ];
     }
@@ -49,7 +51,7 @@ class Profile extends Component
     {
         $this->validate();
 
-        $this->user->password = when($this->password !== null, bcrypt($this->password), $this->user->password);
+        $this->user->password = when($this->password !== null, Hash::make($this->password), $this->user->password);
         $this->user->update();
 
         $this->dispatch('updated', name: $this->user->name);
