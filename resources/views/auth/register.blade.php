@@ -15,7 +15,7 @@
         </div>
 
         <div class="mt-4">
-            <x-password label="Password *" name="password" required autocomplete="new-password" rules generator />
+            <x-password label="Password *" name="password" required autocomplete="new-password" />
         </div>
 
         <div class="mt-4">
