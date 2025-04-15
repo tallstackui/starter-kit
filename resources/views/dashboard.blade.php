@@ -19,9 +19,10 @@
                 </ul>
                 <p>And also:</p>
                 <ul class="ml-2 mt-2 list-inside list-decimal font-semibold">
-                    <li>Pest</li>
-                    <li>LaraStan</li>
-                    <li>Pint</li>
+                    <li><a href="https://github.com/barryvdh/laravel-debugbar" target="_blank">DebugBar</a></li>
+                    <li><a href="https://github.com/larastan/larastan" target="_blank">LaraStan</a></li>
+                    <li><a href="https://pestphp.com/" target="_blank">Pest</a></li>
+                    <li><a href="https://laravel.com/docs/pint" target="_blank">Pint</a></li>
                 </ul>
             </div>
         </div>
