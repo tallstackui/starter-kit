@@ -25,6 +25,15 @@ it('initializes with existing user data', function () {
         ->assertSet('password_confirmation', null);
 });
 
+it('load the correct use', function () {
+    Livewire::test(Update::class)
+        ->call('load', $this->original)
+        ->assertSet('user.name', 'Original Name')
+        ->assertSet('user.email', 'original@example.com')
+        ->assertSet('password', null)
+        ->assertSet('password_confirmation', null);
+});
+
 it('updates user name and email', function () {
     Livewire::test(Update::class, ['user' => $this->original])
         ->set('user.name', 'Updated Name')

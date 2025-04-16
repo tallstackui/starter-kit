@@ -6,13 +6,14 @@ use App\Livewire\Traits\Alert;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Update extends Component
 {
     use Alert;
 
-    public User $user;
+    public ?User $user;
 
     public ?string $password = null;
 
@@ -23,6 +24,14 @@ class Update extends Component
     public function render(): View
     {
         return view('livewire.users.update');
+    }
+
+    #[On('load::user')]
+    public function load(User $user): void
+    {
+        $this->user = $user;
+
+        $this->modal = true;
     }
 
     public function rules(): array

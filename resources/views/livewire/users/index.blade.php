@@ -13,9 +13,11 @@
         @endinteract
         @interact('column_action', $row)
             <div class="flex gap-1">
-                <livewire:users.update :user="$row" :key="uniqid()" @updated="$refresh" />
+                <x-button.circle icon="pencil" wire:click="$dispatch('load::user', { 'user' : '{{ $row->id }}'})" />
                 <livewire:users.delete :user="$row" :key="uniqid()" @deleted="$refresh" />
             </div>
         @endinteract
     </x-table>
+
+    <livewire:users.update @updated="$refresh" />
 </div>
