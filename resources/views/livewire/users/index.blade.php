@@ -7,7 +7,7 @@
         <livewire:users.create @created="$refresh" />
     </div>
 
-    <x-table :headers="$this->headers" :$sort :rows="$this->rows" paginate simple-pagination filter :quantity="[2, 5, 15, 25]">
+    <x-table :$headers :$sort :rows="$this->rows" paginate simple-pagination filter :quantity="[2, 5, 15, 25]">
         @interact('column_created_at', $row)
             {{ $row->created_at->diffForHumans() }}
         @endinteract
