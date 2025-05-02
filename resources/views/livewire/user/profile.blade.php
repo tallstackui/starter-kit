@@ -1,37 +1,37 @@
 <div @updated="$dispatch('name-updated', { name: $event.detail.name })">
     <x-card>
         <x-slot:header>
-            Edit Your Profile
+            @lang('Edit Your Profile')
         </x-slot:header>
         <form id="update-profile" wire:submit="save">
             <div class="space-y-6">
                 <div>
-                    <x-input label="Name *" wire:model="user.name" required />
+                    <x-input label="{{ __('Name') }} *" wire:model="user.name" required />
                 </div>
                 <div>
-                    <x-input label="Email *" value="{{ $user->email }}" disabled />
+                    <x-input label="{{ __('Email') }} *" value="{{ $user->email }}" disabled />
                 </div>
                 <div>
-                    <x-password label="Password"
-                                hint="The password will only be updated if you set the value of this field"
+                    <x-password :label="__('Password')"
+                                :hint="__('The password will only be updated if you set the value of this field')"
                                 wire:model="password"
                                 rules
                                 generator
                                 x-on:generate="$wire.set('password_confirmation', $event.detail.password)" />
                 </div>
                 <div>
-                    <x-password label="Password" wire:model="password_confirmation" rules />
+                    <x-password :label="__('Confirm password')" wire:model="password_confirmation" rules />
                 </div>
             </div>
             <x-slot:footer>
                 <x-button type="submit">
-                    Save
+                    @lang('Save')
                 </x-button>
             </x-slot:footer>
         </form>
         <x-slot:footer>
             <x-button type="submit" form="update-profile">
-                Save
+                @lang('Save')
             </x-button>
         </x-slot:footer>
     </x-card>
