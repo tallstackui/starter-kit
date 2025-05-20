@@ -15,7 +15,7 @@ class Index extends Component
 {
     use WithPagination;
 
-    public ?int $quantity = 10;
+    public ?int $quantity = 5;
 
     public ?string $search = null;
 

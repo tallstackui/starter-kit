@@ -63,7 +63,7 @@ class Update extends Component
         $this->validate();
 
         $this->user->password = when($this->password !== null, bcrypt($this->password), $this->user->password);
-        $this->user->update();
+        $this->user->save();
 
         $this->dispatch('updated');
 

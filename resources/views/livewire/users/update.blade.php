@@ -23,7 +23,7 @@
             </div>
         </form>
         <x-slot:footer>
-            <x-button type="submit" form="user-update-{{ $user?->id }}">
+            <x-button type="submit" form="user-update-{{ $user?->id }}" loading="save">
                 @lang('Save')
             </x-button>
         </x-slot:footer>

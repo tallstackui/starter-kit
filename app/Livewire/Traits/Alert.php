@@ -9,35 +9,35 @@ trait Alert
 {
     use Interactions;
 
-    public function success(string $title = 'Done!', string $description = 'Task completed successfully.'): void
+    public function success(string $description = 'Task completed successfully.', string $title = 'Done!'): void
     {
         $this->dialog()
             ->success(__($title), __($description))
             ->send();
     }
 
-    public function error(string $title = 'Ooops!', string $description = 'Something went wrong!'): void
+    public function error(string $description = 'Something went wrong!', string $title = 'Ops!'): void
     {
         $this->dialog()
             ->error(__($title), __($description))
             ->send();
     }
 
-    public function warning(string $title = 'Ooops!', string $description = null): void
+    public function warning(string $description = 'Hey! This is dangerous.', string $title = 'Ops!'): void
     {
         $this->dialog()
             ->warning(__($title), __($description))
             ->send();
     }
 
-    public function info(string $title = 'Warning!', string $description = null): void
+    public function info(string $description = 'Ops! Pay attention on it.', string $title = 'Warning!'): void
     {
         $this->dialog()
             ->info(__($title), __($description))
             ->send();
     }
 
-    public function question(string $title = 'Warning!', string $description = 'Are you sure?'): Dialog
+    public function question(string $description = 'Are you sure?', string $title = 'Warning!'): Dialog
     {
         return $this->dialog()->question(__($title), __($description));
     }

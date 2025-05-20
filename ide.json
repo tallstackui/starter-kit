@@ -84,10 +84,6 @@
                     "className": "TallStackUi\\View\\Components\\Errors"
                 },
                 {
-                    "name": "upload",
-                    "className": "TallStackUi\\View\\Components\\Form\\Upload"
-                },
-                {
                     "name": "hint",
                     "className": "TallStackUi\\View\\Components\\Form\\Hint"
                 },
@@ -118,6 +114,10 @@
                 {
                     "name": "loading",
                     "className": "TallStackUi\\View\\Components\\Loading"
+                },
+                {
+                    "name": "key-value",
+                    "className": "TallStackUi\\View\\Components\\KeyValue"
                 },
                 {
                     "name": "modal",
@@ -234,6 +234,10 @@
                 {
                     "name": "tooltip",
                     "className": "TallStackUi\\View\\Components\\Tooltip"
+                },
+                {
+                    "name": "upload",
+                    "className": "TallStackUi\\View\\Components\\Form\\Upload"
                 },
                 {
                     "name": "reaction",

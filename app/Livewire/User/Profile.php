@@ -52,7 +52,7 @@ class Profile extends Component
         $this->validate();
 
         $this->user->password = when($this->password !== null, Hash::make($this->password), $this->user->password);
-        $this->user->update();
+        $this->user->save();
 
         $this->dispatch('updated', name: $this->user->name);
 
