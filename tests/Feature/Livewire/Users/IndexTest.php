@@ -23,7 +23,7 @@ it('renders the users index component', function () {
 
 it('initializes with default settings', function () {
     Livewire::test(Index::class)
-        ->assertSet('quantity', 10)
+        ->assertSet('quantity', 5)
         ->assertSet('search', null)
         ->assertSet('sort', [
             'column' => 'created_at',
