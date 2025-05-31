@@ -1,18 +1,156 @@
-# TallStackUI
+# TallStackUI Starter Kit
 
-<p align="center"><a href="https://tallstackui.com" target="_blank"><img src="https://raw.githubusercontent.com/tallstackui/website/main/arts/tallstackui.svg" width="500"></a></p>
+![TallStackUI Logo](docs/images/tallstackui.svg)
 
-<p align="center">
-    <img alt="Packagist Downloads" src="https://img.shields.io/packagist/dt/tallstackui/tallstackui?style=for-the-badge">
-    <a href="https://laravel.com"><img alt="Laravel v10.x" src="https://img.shields.io/badge/Laravel-^v10.x-FF2D20?style=for-the-badge&logo=laravel"></a>
-    <a href="https://php.net"><img alt="PHP 8.1" src="https://img.shields.io/badge/PHP-^8.1-777BB4?style=for-the-badge&logo=php"></a>
-    <a href="https://livewire.laravel.com"><img alt="Livewire v3.x" src="https://img.shields.io/badge/Livewire-^v3.x-FB70A9?style=for-the-badge"></a>
-</p>
+The **TallStackUI Starter Kit** is an official starter kit for Laravel 12 that provides a solid foundation ready for real-world use, saving time on basic setup of new Laravel projects.
 
-## Welcome
+## 🚀 Key Features
 
-This is the repository for the official TallStackUI starter kit for Laravel 12.
+### Technology Stack
+- **Laravel 12** - Modern PHP framework
+- **Livewire 3** - Full-stack dynamic components
+- **TallStackUI 2** - UI component library
+- **TailwindCSS v4** - Utility-first CSS framework
 
-## Documentation
+### Included Features
 
-[Discover the starter kit by visiting the official documentation on the TallStackUI website.](https://tallstackui.com/docs/v2/starter-kit)
+#### 📱 Responsive and Modern Interface
+![Dashboard Preview](docs/images/dashboard-preview.png)
+
+#### 🔐 Complete Authentication System
+![Login Screen](docs/images/login-screen.png)
+
+- Login and registration system
+- Profile update page
+- Authentication based on Laravel Breeze
+
+#### 👥 Users CRUD
+![Users CRUD](docs/images/users-crud.png)
+
+Complete CRUD example including:
+- User listing
+- Creating new users
+- Data updates
+- Record deletion
+
+#### 🌙 Dark Theme Support
+![Dark Theme](docs/images/dark-theme.png)
+
+Integrated theme switcher for better user experience.
+
+#### 📊 TallStackUI Components
+![Components Preview](docs/images/components-preview.png)
+
+Over 30 ready-to-use components:
+- Forms
+- UI elements
+- Interactions
+- Error handling
+- And much more
+
+## 🛠️ Installation
+
+### Prerequisites
+- Laravel Installer installed
+- PHP 8.2+
+- Composer
+
+### Using Laravel Installer (Recommended)
+```bash
+laravel new project --using=tallstackui/starter-kit
+```
+
+### Manual Installation
+```bash
+git clone https://github.com/tallstackui/starter-kit.git project
+cd project
+rm -rf .git
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+```
+
+## 🎯 Getting Started
+
+### Initial Access
+![Welcome Page](docs/images/welcome-page.png)
+
+After installation, access your project. The home page will be the default Laravel page with login and registration buttons at the top.
+
+### Default Credentials
+- **Email:** `admin@tallstackui.com`
+- **Password:** `password`
+
+### Exploring the CRUD
+![CRUD Interface](docs/images/crud-interface.png)
+
+Navigate to `/users` to see the complete CRUD example in action.
+
+## 🏗️ Project Structure
+
+### Livewire Components Organization
+```
+App\Livewire\Users\
+├── Index.php      # Main listing
+├── Create.php     # User creation
+├── Update.php     # Data updates
+└── Delete.php     # Record deletion
+```
+
+### Included Development Resources
+
+#### 🧪 Automated Testing
+![Testing](docs/images/testing.png)
+
+```bash
+composer test
+```
+
+#### 📊 Code Analysis
+```bash
+composer analyse  # PHPStan
+composer format   # Pint
+composer ci       # Complete pipeline
+```
+
+## 🎨 Customization
+
+### Colors and Theme
+![Color Customization]
+
+The starter kit uses a primary color based on TallStackUI documentation color, easily customizable through the single configuration file.
+
+### Simplified Configuration
+- Single published configuration file
+- All unnecessary comments removed
+- Clean and organized structure
+
+## 📈 Benefits
+
+### ⚡ Accelerated Development
+![Fast Development]
+
+- Significant time savings on initial setup
+- Pre-built and tested components
+- Established development patterns
+
+### 🔧 Production Ready
+![Production Ready]
+
+- SQLite database connection configured
+- Comprehensive test coverage included
+- Integrated code quality tools
+
+## 📚 Documentation
+
+For complete documentation, visit: [TallStackUI Documentation](https://tallstackui.com/docs/v2/starter-kit)
+
+## 🤝 Contributing
+
+Want to improve the starter kit? [Send us a pull request!](https://github.com/tallstackui/starter-kit)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
