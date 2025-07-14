@@ -1,8 +1,5 @@
 <div @updated="$dispatch('name-updated', { name: $event.detail.name })">
-    <x-card>
-        <x-slot:header>
-            @lang('Edit Your Profile')
-        </x-slot:header>
+    <x-card :header="__('Edit Your Profile')">
         <form id="update-profile" wire:submit="save">
             <div class="space-y-6">
                 <div>
