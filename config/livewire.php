@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'layout' => 'layouts.app', // Default is 'components.layouts.app'. The starter kit uses 'layouts.app' to match the default Laravel layout.
+    'layout' => 'layouts::app', // Default is 'components.layouts.app'. The starter kit uses 'layouts.app' to match the default Laravel layout.
 
     /*
     |---------------------------------------------------------------------------
