@@ -26,9 +26,6 @@
         </x-slot:top>
         <x-slot:header>
             <x-layout.header>
-                <x-slot:left>
-                    <x-theme-switch />
-                </x-slot:left>
                 <x-slot:right>
                     <x-dropdown>
                         <x-slot:action>
@@ -38,6 +35,9 @@
                                 </button>
                             </div>
                         </x-slot:action>
+                        <x-slot:header>
+                            <x-theme-switch block />
+                        </x-slot:header>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <x-dropdown.items :text="__('Profile')" :href="route('user.profile')" />
@@ -50,10 +50,15 @@
         <x-slot:menu>
             <x-side-bar smart collapsible>
                 <x-slot:brand>
-                    <div class="mt-8 flex items-center justify-center">
+                    <div class="my-4 flex items-center justify-center">
                         <img src="{{ asset('/assets/images/tsui.png') }}" width="40" height="40" />
                     </div>
                 </x-slot:brand>
+                <x-slot:brand-collapsed>
+                    <div class="my-4 flex items-center justify-center">
+                        <img src="{{ asset('/assets/images/tsui.png') }}" width="20" height="20" />
+                    </div>
+                </x-slot:brand-collapsed>
                 <x-side-bar.item text="Dashboard" icon="home" :route="route('dashboard')" />
                 <x-side-bar.item text="Users" icon="users" :route="route('users.index')" />
                 <x-side-bar.item text="Welcome Page" icon="arrow-uturn-left" :route="route('welcome')" />

@@ -27,9 +27,11 @@
             </x-slot:footer>
         </form>
         <x-slot:footer>
-            <x-button type="submit" form="update-profile">
-                @lang('Save')
-            </x-button>
+            <div class="flex justify-end">
+                <x-button type="submit" form="update-profile">
+                    @lang('Save')
+                </x-button>
+            </div>
         </x-slot:footer>
     </x-card>
 </div>
