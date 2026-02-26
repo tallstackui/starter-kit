@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Traits;
 
-use TallStackUi\Foundation\Interactions\Dialog;
+use TallStackUi\Interactions\Dialog;
 use TallStackUi\Traits\Interactions;
 
 trait Alert
