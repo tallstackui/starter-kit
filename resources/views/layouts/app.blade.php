@@ -42,7 +42,7 @@
                         </x-slot:header>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <x-dropdown.items :text="__('Profile')" :href="route('user.profile')" />
+                            <x-dropdown.items :text="__('Profile')" :href="route('user.profile')" wire:navigate />
                             <x-dropdown.items
                                 :text="__('Logout')"
                                 onclick="
@@ -68,9 +68,8 @@
                         <img src="{{ asset('/assets/images/tsui.png') }}" width="20" height="20" />
                     </div>
                 </x-slot:brand-collapsed>
-                <x-side-bar.item text="Dashboard" icon="home" :route="route('dashboard')" />
-                <x-side-bar.item text="Users" icon="users" :route="route('users.index')" />
-                <x-side-bar.item text="Welcome Page" icon="arrow-uturn-left" :route="route('welcome')" />
+                <x-side-bar.item text="Dashboard" icon="home" :route="route('dashboard')" wire:navigate />
+                <x-side-bar.item text="Welcome Page" icon="arrow-uturn-left" :route="route('welcome')" wire:navigate />
             </x-side-bar>
         </x-slot:menu>
         {{ $slot }}
