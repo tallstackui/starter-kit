@@ -10,12 +10,14 @@
             </div>
 
             <div>
-                <x-password :label="__('Password')"
-                            hint="The password will only be updated if you set the value of this field"
-                            wire:model="password"
-                            rules
-                            generator
-                            x-on:generate="$wire.set('password_confirmation', $event.detail.password)" />
+                <x-password
+                    :label="__('Password')"
+                    hint="The password will only be updated if you set the value of this field"
+                    wire:model="password"
+                    rules
+                    generator
+                    x-on:generate="$wire.set('password_confirmation', $event.detail.password)"
+                />
             </div>
 
             <div>
@@ -24,7 +26,7 @@
         </form>
         <x-slot:footer>
             <x-button type="submit" form="user-update-{{ $user?->id }}" loading="save">
-                @lang('Save')
+                @lang ('Save')
             </x-button>
         </x-slot:footer>
     </x-modal>

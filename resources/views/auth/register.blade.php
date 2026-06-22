@@ -22,14 +22,12 @@
             <x-password label="Confirm Password *" name="password_confirmation" required autocomplete="new-password" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md" href="{{ route('login') }}">
+        <div class="mt-4 flex items-center justify-end">
+            <a class="rounded-md text-sm text-gray-600 underline hover:text-gray-900" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
 
-            <x-button type="submit" class="ms-4">
-                {{ __('Register') }}
-            </x-button>
+            <x-button type="submit" class="ms-4"> {{ __('Register') }} </x-button>
         </div>
     </form>
 </x-guest-layout>

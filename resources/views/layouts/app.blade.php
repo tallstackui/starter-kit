@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data="tallstackui_darkTheme()">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <tallstackui:script />
-        @livewireStyles
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased"
-          x-cloak
-          x-data="{ name: @js(auth()->user()->name) }"
-          x-on:name-updated.window="name = $event.detail.name"
-          x-bind:class="{ 'dark bg-gray-800': darkTheme, 'bg-gray-100': !darkTheme }">
+    <tallstackui:script />
+    @livewireStyles
+    @vite (['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body
+    class="font-sans antialiased"
+    x-cloak
+    x-data="{ name: @js(auth()->user()->name) }"
+    x-on:name-updated.window="name = $event.detail.name"
+    x-bind:class="{ 'dark bg-gray-800': darkTheme, 'bg-gray-100': !darkTheme }"
+>
     <x-layout>
         <x-slot:top>
             <x-dialog />
@@ -31,7 +33,7 @@
                         <x-slot:action>
                             <div>
                                 <button class="cursor-pointer" x-on:click="show = !show">
-                                    <span class="text-base font-semibold text-primary-500" x-text="name"></span>
+                                    <span class="text-primary-500 text-base font-semibold" x-text="name"></span>
                                 </button>
                             </div>
                         </x-slot:action>
@@ -41,7 +43,14 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <x-dropdown.items :text="__('Profile')" :href="route('user.profile')" />
-                            <x-dropdown.items :text="__('Logout')" onclick="event.preventDefault(); this.closest('form').submit();" separator />
+                            <x-dropdown.items
+                                :text="__('Logout')"
+                                onclick="
+                                    event.preventDefault();
+                                    this.closest('form').submit();
+                                "
+                                separator
+                            />
                         </form>
                     </x-dropdown>
                 </x-slot:right>
@@ -67,5 +76,5 @@
         {{ $slot }}
     </x-layout>
     @livewireScripts
-    </body>
+</body>
 </html>

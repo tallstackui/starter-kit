@@ -3,7 +3,11 @@
     "name": "tallstackui/starter-kit",
     "type": "project",
     "description": "The TallStackUI Starter Kit for Laravel 12.",
-    "keywords": ["laravel", "framework", "tallstackui"],
+    "keywords": [
+        "laravel",
+        "framework",
+        "tallstackui"
+    ],
     "license": "MIT",
     "authors": [
         {

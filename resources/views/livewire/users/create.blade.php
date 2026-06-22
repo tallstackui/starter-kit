@@ -12,12 +12,14 @@
             </div>
 
             <div>
-                <x-password label="{{ __('Password') }} *"
-                            wire:model="password"
-                            rules
-                            generator
-                            x-on:generate="$wire.set('password_confirmation', $event.detail.password)"
-                            required />
+                <x-password
+                    label="{{ __('Password') }} *"
+                    wire:model="password"
+                    rules
+                    generator
+                    x-on:generate="$wire.set('password_confirmation', $event.detail.password)"
+                    required
+                />
             </div>
 
             <div>
@@ -26,7 +28,7 @@
         </form>
         <x-slot:footer>
             <x-button type="submit" form="user-create">
-                @lang('Save')
+                @lang ('Save')
             </x-button>
         </x-slot:footer>
     </x-modal>

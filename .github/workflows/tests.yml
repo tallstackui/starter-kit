@@ -1,81 +1,81 @@
 name: Tests
 
 on:
-  push:
-    branches:
-      - 2.x
-      - 3.x
-    paths-ignore:
-      - '.github/**'
-      - 'README.md'
-  pull_request:
-    branches:
-      - 2.x
-      - 3.x
-  workflow_dispatch:
+    push:
+        branches:
+            - 2.x
+            - 3.x
+        paths-ignore:
+            - '.github/**'
+            - 'README.md'
+    pull_request:
+        branches:
+            - 2.x
+            - 3.x
+    workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
+    build:
+        runs-on: ${{ matrix.os }}
 
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest]
-        php: [8.2,8.3]
-        laravel: ['12.*', '13.*']
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-latest]
+                php: [8.2, 8.3]
+                laravel: ['12.*', '13.*']
 
-    name: OS:${{ matrix.os }} / PHP:${{ matrix.php }} / Laravel:${{ matrix.laravel }}
+        name: OS:${{ matrix.os }} / PHP:${{ matrix.php }} / Laravel:${{ matrix.laravel }}
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22.x
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22.x
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
-          tools: composer:v2
-          coverage: none
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php }}
+                  extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
+                  tools: composer:v2
+                  coverage: none
 
-      - name: Install Composer
-        run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-progress --ansi --no-update
-          composer update --no-interaction --no-progress --ansi
+            - name: Install Composer
+              run: |
+                  composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-progress --ansi --no-update
+                  composer update --no-interaction --no-progress --ansi
 
-      - name: Install Node Dependencies
-        run: |
-          rm -rf node_modules
-          rm -f package-lock.json
-          npm install
-          npm run build
+            - name: Install Node Dependencies
+              run: |
+                  rm -rf node_modules
+                  rm -f package-lock.json
+                  npm install
+                  npm run build
 
-      - name: Copy .env
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+            - name: Copy .env
+              run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
-      - name: Creating Database
-        run: php -r "file_exists('database/database.sqlite') || touch('database/database.sqlite');"
+            - name: Creating Database
+              run: php -r "file_exists('database/database.sqlite') || touch('database/database.sqlite');"
 
-      - name: Preparing Laravel
-        run: php artisan key:generate --force && php artisan optimize:clear
+            - name: Preparing Laravel
+              run: php artisan key:generate --force && php artisan optimize:clear
 
-      - name: Check Route Integrity
-        run: php artisan route:list
+            - name: Check Route Integrity
+              run: php artisan route:list
 
-      - name: Run Migrations
-        run: php artisan migrate:fresh --step --force --no-interaction --seed
+            - name: Run Migrations
+              run: php artisan migrate:fresh --step --force --no-interaction --seed
 
-      - name: Pint
-        run: ./vendor/bin/pint --test
+            - name: Pint
+              run: ./vendor/bin/pint --test
 
-      - name: PhpStan
-        run: ./vendor/bin/phpstan --configuration="phpstan.neon"
+            - name: PhpStan
+              run: ./vendor/bin/phpstan --configuration="phpstan.neon"
 
-      - name: Feature Tests
-        run: ./vendor/bin/pest --ci --parallel
+            - name: Feature Tests
+              run: ./vendor/bin/pest --ci --parallel
