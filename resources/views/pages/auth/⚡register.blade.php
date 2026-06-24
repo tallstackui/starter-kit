@@ -25,7 +25,7 @@ new #[Layout('layouts.guest')] #[Title('Registration')] class extends Component 
     {
         // It is logged in
         if (auth()->user()) {
-            return redirect('/');
+            return redirect('/dashboard');
         }
     }
 
@@ -42,7 +42,7 @@ new #[Layout('layouts.guest')] #[Title('Registration')] class extends Component 
 
         request()->session()->regenerate();
 
-        return redirect('/');
+        return redirect('/dashboard');
     }
 };
 ?>

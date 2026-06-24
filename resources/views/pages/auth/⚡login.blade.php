@@ -19,7 +19,7 @@ new #[Layout('layouts.guest')] #[Title('Registration')] class extends Component 
     {
         // It is logged in
         if (auth()->user()) {
-            return redirect('/');
+            return redirect('/dashboard');
         }
     }
 
@@ -30,7 +30,7 @@ new #[Layout('layouts.guest')] #[Title('Registration')] class extends Component 
         if (auth()->attempt($credentials, $this->remember)) {
             request()->session()->regenerate();
 
-            return redirect()->intended('/');
+            return redirect()->intended('/dashboard');
         }
 
         $this->addError('email', 'The provided credentials do not match our records.');

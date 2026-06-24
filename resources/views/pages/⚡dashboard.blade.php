@@ -1,4 +1,15 @@
-<x-app-layout>
+<?php
+
+use Livewire\Component;
+use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
+
+new #[Layout('layouts.app')] #[Title('Dashboard')] class extends Component {
+    //
+};
+?>
+
+<div>
     <x-card header="Welcome to the TallStackUI Starter Kit">
         <div class="space-y-2">
             <p>👋🏻 This is the TallStackUI starter kit for Laravel 12. With this TallStackUI starter kit you will be able to enjoy a ready-to-use application to initialize your next Laravel 12 project with TallStackUI.</p>
@@ -28,4 +39,4 @@
             </span>
         </x-slot:footer>
     </x-card>
-</x-app-layout>
+</div>
