@@ -1,8 +1,6 @@
 <?php
 
-use App\Livewire\User\Profile;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Users\Index;
 
 Route::view('/', 'welcome')->name('welcome');
 
