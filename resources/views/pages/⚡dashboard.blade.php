@@ -18,7 +18,7 @@ new #[Layout('layouts.app')] #[Title('Dashboard')] class extends Component {
                 <ul class="mt-2 ml-2 list-inside list-decimal font-semibold">
                     <li>Laravel v12</li>
                     <li>Livewire v3</li>
-                    <li>TallStackUI v2</li>
+                    <li>TallStackUI v3</li>
                     <li>TailwindCSS v4</li>
                 </ul>
                 <p>And also:</p>

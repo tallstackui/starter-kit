@@ -40,18 +40,8 @@
                         <x-slot:header>
                             <x-theme-switch block />
                         </x-slot:header>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <x-dropdown.items :text="__('Profile')" :href="route('user.profile')" wire:navigate />
-                            <x-dropdown.items
-                                :text="__('Logout')"
-                                onclick="
-                                    event.preventDefault();
-                                    this.closest('form').submit();
-                                "
-                                separator
-                            />
-                        </form>
+                        <x-dropdown.items :text="__('Profile')" :href="route('user.profile')" wire:navigate />
+                        <x-dropdown.items :text="__('Logout')" :href="route('logout')" separator />
                     </x-dropdown>
                 </x-slot:right>
             </x-layout.header>
