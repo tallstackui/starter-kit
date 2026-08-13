@@ -39,7 +39,7 @@ it('rejects an invalid current password', function () {
 
 it('validates password confirmation', function () {
     Livewire::test(Password::class)
-        ->set('current_password', 'password')
+        ->set('current_password', 'Test123!')
         ->set('password', 'new-password')
         ->set('password_confirmation', 'wrong-confirmation')
         ->call('save')
@@ -48,7 +48,7 @@ it('validates password confirmation', function () {
 
 it('updates the password', function () {
     Livewire::test(Password::class)
-        ->set('current_password', 'password')
+        ->set('current_password', 'Test123!')
         ->set('password', 'new-password')
         ->set('password_confirmation', 'new-password')
         ->call('save')

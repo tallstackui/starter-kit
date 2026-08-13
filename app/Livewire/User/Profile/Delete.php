@@ -32,6 +32,13 @@ class Delete extends Component
         $this->user = user();
     }
 
+    public function rules(): array
+    {
+        return [
+            'password' => ['required', 'string', 'current_password'],
+        ];
+    }
+
     public function render(): View
     {
         return view('livewire.user.profile.delete');
@@ -39,7 +46,7 @@ class Delete extends Component
 
     public function confirm(): void
     {
-        $this->validate(['password' => ['required', 'string', 'current_password']]);
+        $this->validate();
 
         $this->modal = false;
 
@@ -51,6 +58,8 @@ class Delete extends Component
 
     public function delete(): void
     {
+        $this->validate();
+
         try {
             Auth::logout();
 

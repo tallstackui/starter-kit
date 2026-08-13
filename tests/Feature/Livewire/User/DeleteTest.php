@@ -34,7 +34,7 @@ it('rejects an invalid password', function () {
 
 it('deletes the profile and logs the user out', function () {
     Livewire::test(Delete::class)
-        ->set('password', 'password')
+        ->set('password', 'Test123!')
         ->call('delete')
         ->assertHasNoErrors()
         ->assertRedirect(route('welcome'));

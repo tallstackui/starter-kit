@@ -11,7 +11,7 @@ it('renders the two factor challenge after login', function () {
 
     $this->post(route('login.store'), [
         'email'    => $user->email,
-        'password' => 'password',
+        'password' => 'Test123!',
     ])->assertRedirect(route('two-factor.login'));
 
     $this->assertGuest();
@@ -24,7 +24,7 @@ it('authenticates with a valid authentication code', function () {
 
     $this->post(route('login.store'), [
         'email'    => $user->email,
-        'password' => 'password',
+        'password' => 'Test123!',
     ]);
 
     $code = app(Google2FA::class)->getCurrentOtp(
@@ -43,7 +43,7 @@ it('authenticates with a recovery code', function () {
 
     $this->post(route('login.store'), [
         'email'    => $user->email,
-        'password' => 'password',
+        'password' => 'Test123!',
     ]);
 
     $this->post(route('two-factor.login.store'), [

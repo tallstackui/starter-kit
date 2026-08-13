@@ -15,7 +15,7 @@ it('authenticates a user', function () {
 
     $this->post(route('login.store'), [
         'email'    => $user->email,
-        'password' => 'password',
+        'password' => 'Test123!',
     ])->assertRedirect('/dashboard');
 
     $this->assertAuthenticatedAs($user);

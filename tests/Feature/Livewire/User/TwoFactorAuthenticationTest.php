@@ -31,7 +31,7 @@ it('requires the current password to enable', function () {
 
 it('enables two factor authentication', function () {
     Livewire::test(TwoFactorAuthentication::class)
-        ->set('current_password', 'password')
+        ->set('current_password', 'Test123!')
         ->call('enable')
         ->assertHasNoErrors()
         ->assertSet('pending', true)
@@ -43,7 +43,7 @@ it('enables two factor authentication', function () {
 
 it('confirms two factor authentication', function () {
     Livewire::test(TwoFactorAuthentication::class)
-        ->set('current_password', 'password')
+        ->set('current_password', 'Test123!')
         ->call('enable');
 
     $user = $this->user->refresh();
@@ -62,7 +62,7 @@ it('confirms two factor authentication', function () {
 
 it('rejects an invalid confirmation code', function () {
     Livewire::test(TwoFactorAuthentication::class)
-        ->set('current_password', 'password')
+        ->set('current_password', 'Test123!')
         ->call('enable');
 
     Livewire::test(TwoFactorAuthentication::class)
@@ -77,7 +77,7 @@ it('disables two factor authentication', function () {
     $this->actingAs($user);
 
     Livewire::test(TwoFactorAuthentication::class)
-        ->set('current_password', 'password')
+        ->set('current_password', 'Test123!')
         ->call('disable')
         ->assertHasNoErrors()
         ->assertSet('enabled', false);
