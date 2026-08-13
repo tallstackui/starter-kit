@@ -13,12 +13,11 @@ use App\Livewire\Traits\Alert;
 use Livewire\Attributes\Computed;
 use Illuminate\Contracts\View\View;
 use Illuminate\Validation\ValidationException;
-use Laravel\Fortify\Actions\GenerateNewRecoveryCodes;
 use Laravel\Fortify\Actions\EnableTwoFactorAuthentication;
 use Laravel\Fortify\Actions\ConfirmTwoFactorAuthentication;
 use Laravel\Fortify\Actions\DisableTwoFactorAuthentication;
 
-class TwoFactor extends Component
+class TwoFactorAuthentication extends Component
 {
     use Alert;
 
@@ -27,8 +26,6 @@ class TwoFactor extends Component
     public ?string $current_password = null;
 
     public ?string $code = null;
-
-    public bool $showingRecoveryCodes = false;
 
     protected array $validationAttributes = [
         'current_password' => 'current password',
@@ -43,7 +40,7 @@ class TwoFactor extends Component
 
     public function render(): View
     {
-        return view('livewire.user.profile.two-factor');
+        return view('livewire.user.profile.two-factor-authentication');
     }
 
     #[Computed]
@@ -78,16 +75,6 @@ class TwoFactor extends Component
         return Fortify::currentEncrypter()->decrypt($this->user->two_factor_secret);
     }
 
-    #[Computed]
-    public function recoveryCodes(): array
-    {
-        if (blank($this->user->two_factor_recovery_codes)) {
-            return [];
-        }
-
-        return $this->user->recoveryCodes();
-    }
-
     public function enable(EnableTwoFactorAuthentication $enable): void
     {
         $this->validateCurrentPassword();
@@ -97,11 +84,6 @@ class TwoFactor extends Component
 
             $this->refreshUser();
             $this->reset('current_password', 'code');
-
-            $this->success(
-                'Scan the QR code with your authenticator app and confirm with a code.',
-                'Almost there'
-            );
 
             return;
         } catch (Exception $e) {
@@ -121,16 +103,12 @@ class TwoFactor extends Component
             $confirm($this->user, $this->code);
 
             $this->refreshUser();
-            $this->showingRecoveryCodes = true;
             $this->reset('code', 'current_password');
-
-            $this->success('Two-factor authentication is now enabled.');
+            $this->js('setTimeout(() => $tsui.open.modal("recovery-codes"), 1000)');
 
             return;
         } catch (ValidationException) {
-            throw ValidationException::withMessages([
-                'code' => [__('The provided two factor authentication code was invalid.')],
-            ]);
+            throw ValidationException::withMessages(['code' => [__('The provided two factor authentication code was invalid.')]]);
         } catch (Exception $e) {
             report($e);
         }
@@ -146,10 +124,7 @@ class TwoFactor extends Component
             $disable($this->user);
 
             $this->refreshUser();
-            $this->showingRecoveryCodes = false;
             $this->reset('current_password', 'code');
-
-            $this->success('Two-factor authentication has been disabled.');
 
             return;
         } catch (Exception $e) {
@@ -179,43 +154,15 @@ class TwoFactor extends Component
         $this->error();
     }
 
-    public function regenerate(GenerateNewRecoveryCodes $generate): void
-    {
-        $this->validateCurrentPassword();
-
-        try {
-            $generate($this->user);
-
-            $this->refreshUser();
-            $this->showingRecoveryCodes = true;
-            $this->reset('current_password');
-
-            $this->success('New recovery codes have been generated.');
-
-            return;
-        } catch (Exception $e) {
-            report($e);
-        }
-
-        $this->error();
-    }
-
-    public function toggleRecoveryCodes(): void
-    {
-        $this->showingRecoveryCodes = ! $this->showingRecoveryCodes;
-    }
-
     protected function validateCurrentPassword(): void
     {
-        $this->validate([
-            'current_password' => ['required', 'string', 'current_password'],
-        ]);
+        $this->validate(['current_password' => ['required', 'string', 'current_password']]);
     }
 
     protected function refreshUser(): void
     {
         $this->user = $this->user->fresh() ?? user();
 
-        unset($this->enabled, $this->pending, $this->qrCodeUrl, $this->setupKey, $this->recoveryCodes);
+        unset($this->enabled, $this->pending, $this->qrCodeUrl, $this->setupKey);
     }
 }

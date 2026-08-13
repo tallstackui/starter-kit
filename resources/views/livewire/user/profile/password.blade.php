@@ -1,7 +1,7 @@
 <div>
     <form id="update-password" wire:submit="save" class="space-y-2">
         <div class="grid gap-4 sm:grid-cols-3">
-            <x-password :label="__('Current password') . ' *'"
+            <x-password :label="__('Current Password') . ' *'"
                         wire:model="current_password"
                         autocomplete="current-password"
                         required />

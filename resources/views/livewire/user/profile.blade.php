@@ -9,7 +9,7 @@
         </x-tab.items>
 
         <x-tab.items tab="two-factor" :title="__('Two Factor Authentication')">
-            <livewire:user.profile.two-factor />
+            <livewire:user.profile.two-factor-authentication />
         </x-tab.items>
     </x-tab>
 </div>
