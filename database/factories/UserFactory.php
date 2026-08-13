@@ -8,21 +8,18 @@ use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\RecoveryCode;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Laravel\Fortify\Contracts\TwoFactorAuthenticationProvider;
 
 class UserFactory extends Factory
 {
-    protected static ?string $password;
-
     public function definition(): array
     {
         return [
             'name'              => fake()->name(),
             'email'             => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password'          => static::$password ??= Hash::make('password'),
+            'password'          => '$2y$12$Np9VjgVWiBrI0PWjz1W0WeEK1AwEjkQpfsorwlhKqHmld8qh4JO7e', // Test123!
             'remember_token'    => Str::random(10),
         ];
     }

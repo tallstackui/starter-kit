@@ -6,7 +6,6 @@ namespace App\Livewire\User\Profile;
 
 use Exception;
 use App\Models\User;
-use Livewire\Attributes\Renderless;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Livewire\Traits\Alert;
