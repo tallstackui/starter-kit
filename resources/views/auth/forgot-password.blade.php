@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-card shadowless bordered :header="__('Forgot your password?')">
+    <x-card shadowless bordered :header="__('Recovery your password')">
         @if (session('status'))
             <div class="mb-4">
                 <x-alert :text="session('status')" color="green" />

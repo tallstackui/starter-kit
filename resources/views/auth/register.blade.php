@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-card shadowless bordered :header="__('Register')">
+    <x-card shadowless bordered :header="__('Create your account')">
         <form id="register" method="POST" action="{{ route('register.store') }}" class="space-y-4">
             @csrf
 
