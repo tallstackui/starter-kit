@@ -53,7 +53,7 @@
         </form>
 
         <div class="flex justify-end">
-            <x-button submit form="enable-two-factor" :text="__('Enable')" loading="enable" />
+            <x-button submit form="enable-two-factor" :text="__('Enable')" loading="enable" round />
         </div>
     @endif
 

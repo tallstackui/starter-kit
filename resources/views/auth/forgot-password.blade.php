@@ -28,7 +28,7 @@
 
                 <span class="text-sm text-gray-600 text-center">
                     Remembered your password?
-                    <x-link :href="route('login')" :text="__('Back to log in')" sm underline colorless/>
+                    <x-link :href="route('login')" :text="__('Back to log in')" sm bold />
                 </span>
             </div>
         </x-slot:footer>

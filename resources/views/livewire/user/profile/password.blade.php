@@ -21,6 +21,6 @@
     </form>
 
     <div class="mt-6 flex justify-end">
-        <x-button submit form="update-password" :text="__('Save')" loading="save" />
+        <x-button submit form="update-password" :text="__('Save')" loading="save" round />
     </div>
 </div>

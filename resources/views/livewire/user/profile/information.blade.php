@@ -7,7 +7,9 @@
         </div>
     </form>
 
-    <div class="mt-6 flex justify-end">
-        <x-button submit form="update-profile" :text="__('Save')" loading="save" />
+    <div class="mt-6 flex items-center justify-between">
+        <livewire:user.profile.delete />
+
+        <x-button submit form="update-profile" :text="__('Save')" loading="save" round />
     </div>
 </div>
