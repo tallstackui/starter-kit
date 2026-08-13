@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 
     // All other configuration options are the same as the default.
@@ -14,7 +16,23 @@ return [
     |
     */
 
-    'layout' => 'layouts::app', // Default is 'components.layouts.app'. The starter kit uses 'layouts.app' to match the default Laravel layout.
+    'component_layout' => 'layouts::app',
+
+    /*
+    |---------------------------------------------------------------------------
+    | Make Command
+    |---------------------------------------------------------------------------
+    */
+
+    'make_command' => [
+        'type'  => 'class',
+        'emoji' => false,
+        'with'  => [
+            'js'   => false,
+            'css'  => false,
+            'test' => false,
+        ],
+    ],
 
     /*
     |---------------------------------------------------------------------------
@@ -27,7 +45,6 @@ return [
     |
     */
 
-    'legacy_model_binding' => true, // Default is false. The starter kit uses the legacy model binding.
+    'legacy_model_binding' => true,
 
-    // All other configuration options are the same as the default.
 ];

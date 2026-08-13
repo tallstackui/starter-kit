@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Users;
 
-use App\Livewire\Traits\Alert;
 use App\Models\User;
-use Livewire\Attributes\Renderless;
 use Livewire\Component;
+use App\Livewire\Traits\Alert;
+use Livewire\Attributes\Renderless;
 
 class Delete extends Component
 {

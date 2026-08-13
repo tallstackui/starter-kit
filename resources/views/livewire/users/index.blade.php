@@ -1,14 +1,10 @@
 <div>
-    <x-card>
-        <x-alert color="amber" icon="light-bulb">
-            @lang('Remember to take a look at the source code to understand how the components in this area were built and are being used.')
-        </x-alert>
-
-        <div class="mb-2 mt-4">
+    <x-card shadowless bordered>
+        <div class="mb-4">
             <livewire:users.create @created="$refresh" />
         </div>
 
-        <x-table :$headers :$sort :rows="$this->rows" paginate simple-pagination filter loading :quantity="[2, 5, 15, 25]">
+        <x-table :$headers :$sort :rows="$this->rows" paginate filter loading :quantity="[2, 5, 15, 25]">
             @interact('column_created_at', $row)
             {{ $row->created_at->diffForHumans() }}
             @endinteract

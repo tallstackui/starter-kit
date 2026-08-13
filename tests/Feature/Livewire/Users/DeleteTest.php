@@ -1,12 +1,14 @@
 <?php
 
-use App\Livewire\Users\Delete;
+declare(strict_types=1);
+
 use App\Models\User;
 use Livewire\Livewire;
+use App\Livewire\Users\Delete;
 
-use function Pest\Laravel\assertDatabaseMissing;
 use function Pest\Laravel\assertModelExists;
 use function Pest\Laravel\assertModelMissing;
+use function Pest\Laravel\assertDatabaseMissing;
 
 beforeEach(fn () => $this->user = User::factory()->create());
 

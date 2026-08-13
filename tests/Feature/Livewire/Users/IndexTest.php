@@ -1,11 +1,13 @@
 <?php
 
-use App\Livewire\Users\Index;
+declare(strict_types=1);
+
 use App\Models\User;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Livewire;
+use Illuminate\Support\Arr;
+use App\Livewire\Users\Index;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 beforeEach(function () {
     $this->auth = User::factory()->create();
@@ -26,7 +28,7 @@ it('initializes with default settings', function () {
         ->assertSet('quantity', 5)
         ->assertSet('search', null)
         ->assertSet('sort', [
-            'column' => 'created_at',
+            'column'    => 'created_at',
             'direction' => 'desc',
         ]);
 });
@@ -58,8 +60,8 @@ it('fetches paginated users excluding authenticated user', function () {
 
 it('filters users by search term', function () {
     $user = User::factory()->create([
-        'name' => 'John Unique Searchable',
-        'email' => 'john.unique@example.com'
+        'name'  => 'John Unique Searchable',
+        'email' => 'john.unique@example.com',
     ]);
 
     $component = Livewire::test(Index::class)
@@ -75,8 +77,8 @@ it('filters users by search term', function () {
 
 it('supports searching by email', function () {
     $user = User::factory()->create([
-        'name' => 'Unique Search User',
-        'email' => 'unique.searchable@example.com'
+        'name'  => 'Unique Search User',
+        'email' => 'unique.searchable@example.com',
     ]);
 
     $component = Livewire::test(Index::class)->set('search', 'unique.searchable');
@@ -103,8 +105,8 @@ it('supports changing pagination quantity', function () {
 it('supports sorting by different columns', function () {
     $component = Livewire::test(Index::class)
         ->set('sort', [
-            'column' => 'name',
-            'direction' => 'asc'
+            'column'    => 'name',
+            'direction' => 'asc',
         ]);
 
     $sort = $component->get('rows')->pluck('name')->toArray();

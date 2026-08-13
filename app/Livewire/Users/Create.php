@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Users;
 
-use App\Livewire\Traits\Alert;
 use App\Models\User;
-use Illuminate\Contracts\View\View;
-use Illuminate\Validation\Rule;
 use Livewire\Component;
+use App\Livewire\Traits\Alert;
+use Illuminate\Validation\Rule;
+use Illuminate\Contracts\View\View;
 
 class Create extends Component
 {
@@ -36,7 +38,7 @@ class Create extends Component
             'user.name' => [
                 'required',
                 'string',
-                'max:255'
+                'max:255',
             ],
             'user.email' => [
                 'required',
@@ -49,8 +51,8 @@ class Create extends Component
                 'nullable',
                 'string',
                 'min:8',
-                'confirmed'
-            ]
+                'confirmed',
+            ],
         ];
     }
 
@@ -58,7 +60,7 @@ class Create extends Component
     {
         $this->validate();
 
-        $this->user->password = bcrypt($this->password);
+        $this->user->password          = bcrypt($this->password);
         $this->user->email_verified_at = now();
         $this->user->save();
 

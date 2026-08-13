@@ -1,8 +1,10 @@
 <?php
 
-use App\Livewire\Users\Create;
+declare(strict_types=1);
+
 use App\Models\User;
 use Livewire\Livewire;
+use App\Livewire\Users\Create;
 
 use function Pest\Laravel\assertDatabaseHas;
 
@@ -23,10 +25,10 @@ it('initializes with a new user', function () {
 
 it('validates user creation with valid data', function () {
     $data = [
-        'user.name' => 'John Doe',
-        'user.email' => 'john@example.com',
-        'password' => 'password123',
-        'password_confirmation' => 'password123'
+        'user.name'             => 'John Doe',
+        'user.email'            => 'john@example.com',
+        'password'              => 'password123',
+        'password_confirmation' => 'password123',
     ];
 
     Livewire::test(Create::class)
@@ -35,7 +37,7 @@ it('validates user creation with valid data', function () {
         ->assertHasNoErrors();
 
     assertDatabaseHas('users', [
-        'name' => 'John Doe',
+        'name'  => 'John Doe',
         'email' => 'john@example.com',
     ]);
 });
@@ -52,9 +54,9 @@ it('requires name', function () {
 
 it('requires unique email', function () {
     User::create([
-        'name' => 'Existing User',
-        'email' => 'existing@example.com',
-        'password' => bcrypt('password123')
+        'name'     => 'Existing User',
+        'email'    => 'existing@example.com',
+        'password' => bcrypt('password123'),
     ]);
 
     Livewire::test(Create::class)
@@ -98,10 +100,10 @@ it('requires minimum password length', function () {
 
 it('sets email verified at when creating user', function () {
     $data = [
-        'user.name' => 'John Doe',
-        'user.email' => 'john@example.com',
-        'password' => 'password123',
-        'password_confirmation' => 'password123'
+        'user.name'             => 'John Doe',
+        'user.email'            => 'john@example.com',
+        'password'              => 'password123',
+        'password_confirmation' => 'password123',
     ];
 
     Livewire::test(Create::class)
@@ -115,10 +117,10 @@ it('sets email verified at when creating user', function () {
 
 it('resets form after successful creation', function () {
     $data = [
-        'user.name' => 'John Doe',
-        'user.email' => 'john@example.com',
-        'password' => 'password123',
-        'password_confirmation' => 'password123'
+        'user.name'             => 'John Doe',
+        'user.email'            => 'john@example.com',
+        'password'              => 'password123',
+        'password_confirmation' => 'password123',
     ];
 
     Livewire::test(Create::class)
@@ -131,10 +133,10 @@ it('resets form after successful creation', function () {
 
 it('dispatches created event', function () {
     $data = [
-        'user.name' => 'John Doe',
-        'user.email' => 'john@example.com',
-        'password' => 'password123',
-        'password_confirmation' => 'password123'
+        'user.name'             => 'John Doe',
+        'user.email'            => 'john@example.com',
+        'password'              => 'password123',
+        'password_confirmation' => 'password123',
     ];
 
     Livewire::test(Create::class)

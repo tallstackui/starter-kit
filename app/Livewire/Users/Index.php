@@ -1,15 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Users;
 
 use App\Models\User;
-use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\Auth;
-use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\Attributes\Computed;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class Index extends Component
 {
@@ -42,7 +44,7 @@ class Index extends Component
     {
         return User::query()
             ->whereNotIn('id', [Auth::id()])
-            ->when($this->search !== null, fn (Builder $query) => $query->whereAny(['name', 'email'], 'like', '%'.trim($this->search).'%'))
+            ->when($this->search !== null, fn (Builder $query) => $query->whereAny(['name', 'email'], 'like', '%'.mb_trim($this->search).'%'))
             ->orderBy(...array_values($this->sort))
             ->paginate($this->quantity)
             ->withQueryString();

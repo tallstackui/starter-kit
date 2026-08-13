@@ -1,13 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Users;
 
-use App\Livewire\Traits\Alert;
 use App\Models\User;
-use Illuminate\Contracts\View\View;
-use Illuminate\Validation\Rule;
-use Livewire\Attributes\On;
 use Livewire\Component;
+use Livewire\Attributes\On;
+use App\Livewire\Traits\Alert;
+use Illuminate\Validation\Rule;
+use Illuminate\Contracts\View\View;
 
 class Update extends Component
 {
@@ -29,8 +31,7 @@ class Update extends Component
     #[On('load::user')]
     public function load(User $user): void
     {
-        $this->user = $user;
-
+        $this->user  = $user;
         $this->modal = true;
     }
 
@@ -40,7 +41,7 @@ class Update extends Component
             'user.name' => [
                 'required',
                 'string',
-                'max:255'
+                'max:255',
             ],
             'user.email' => [
                 'required',
@@ -53,8 +54,8 @@ class Update extends Component
                 'nullable',
                 'string',
                 'min:8',
-                'confirmed'
-            ]
+                'confirmed',
+            ],
         ];
     }
 
@@ -67,7 +68,7 @@ class Update extends Component
 
         $this->dispatch('updated');
 
-        $this->resetExcept('user');
+        $this->reset();
 
         $this->success();
     }

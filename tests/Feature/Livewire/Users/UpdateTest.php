@@ -1,13 +1,15 @@
 <?php
 
-use App\Livewire\Users\Update;
+declare(strict_types=1);
+
 use App\Models\User;
 use Livewire\Livewire;
+use App\Livewire\Users\Update;
 
 beforeEach(function () {
     $this->original = User::factory()->create([
-        'name' => 'Original Name',
-        'email' => 'original@example.com'
+        'name'  => 'Original Name',
+        'email' => 'original@example.com',
     ]);
 });
 
@@ -59,7 +61,7 @@ it('requires name', function () {
 
 it('validates unique email with ignore', function () {
     User::factory()->create([
-        'email' => 'existing@example.com'
+        'email' => 'existing@example.com',
     ]);
 
     Livewire::test(Update::class, ['user' => $this->original])

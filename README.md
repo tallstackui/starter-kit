@@ -11,7 +11,7 @@
 
 ## Welcome
 
-This is the repository for the official TallStackUI starter kit for Laravel 12.
+This is the repository for the official TallStackUI starter kit for Laravel 13.
 
 ## Documentation
 
