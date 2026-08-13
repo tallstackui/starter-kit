@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-card shadowless bordered :header="__('Log in')">
+    <x-card shadowless bordered :header="__('Welcome back!')">
         @if (session('status'))
             <div class="mb-4">
                 <x-alert :text="session('status')" color="green" />

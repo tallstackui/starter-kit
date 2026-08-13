@@ -27,7 +27,7 @@
             <x-qr-code :link="$this->qrCodeUrl" size="lg" />
 
             <div class="w-full space-y-4">
-                <x-clipboard :text="$this->setupKey" :label="__('Setup key')" secret />
+                <x-clipboard :text="$this->setupKey" label="{{ __('Setup key') }}" secret />
 
                 <form id="confirm-two-factor" wire:submit="confirm" class="space-y-2">
                     <x-pin wire:model="code" label="{{ __('Authentication Code') }} *" :length="6" numbers />
@@ -35,18 +35,18 @@
             </div>
         </div>
 
-        <div class="flex justify-end gap-2">
+        <div class="flex justify-end items-center gap-2">
             <x-button :text="__('Cancel')" color="red" round wire:click="cancel" loading="cancel" sm />
 
             <x-button submit form="confirm-two-factor" :text="__('Confirm')" round loading="confirm" />
         </div>
     @else
-        <p class="text-sm text-gray-600 dark:text-gray-400">
+        <p class="text-sm text-dark-600 dark:text-gray-100">
             {{ __('When two-factor authentication is enabled, you will be prompted for a secure, random token during authentication. You can retrieve this token from your phone\'s Google Authenticator application.') }}
         </p>
 
         <form id="enable-two-factor" wire:submit="enable" class="space-y-2">
-            <x-password label="{{ __('Current password') }} *"
+            <x-password label="{{ __('Current Password') }} *"
                         wire:model="current_password"
                         autocomplete="current-password"
                         required />
