@@ -11,22 +11,13 @@
             "email": "alvaro.meireles@live.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "path",
-            "url": "/Users/aj/Workspace/tallstack/tallstackui",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
     "require": {
         "php": "^8.2",
         "laravel/fortify": "^1.30",
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
         "livewire/livewire": "^4.0.0",
-        "tallstackui/tallstackui": "4.x-dev"
+        "tallstackui/tallstackui": "^4.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^4.0",
